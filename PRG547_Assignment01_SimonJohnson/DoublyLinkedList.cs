@@ -190,7 +190,8 @@ namespace PRG547_Assignment01_SimonJohnson
             return false;
         }
 
-        public IEnumerator<T> GetEnumerator() // May need to be reverted back to OG version
+        //public IEnumerator<T> GetEnumerator() // May need to be reverted back to OG version
+        System.Collections.Generic.IEnumerator<T> System.Collections.Generic.IEnumerable<T>.GetEnumerator()
         {
             DoublyLinkedListNode<T> current = Head;
             while (current != null)

@@ -30,11 +30,12 @@ namespace dotNETDoublyLinkedList
             }
             Console.ReadLine();
 
-            //foreach (Student student in studentList)
-            //{
-            //    studentList.GetEnumerator();
-            //}
-            //Console.ReadLine();
+            foreach (Student student in studentList)
+            {
+                string studentInfo = student.ToString();
+                Console.WriteLine(studentInfo);
+            }
+            Console.ReadLine();
         }
     }
 }
