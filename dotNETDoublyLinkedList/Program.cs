@@ -29,9 +29,9 @@ namespace dotNETDoublyLinkedList
             {
                 student.DisplayPerson();
             }
-            Console.ReadLine();
+            Console.ReadLine();  
 
-            foreach (Student student in studentList)
+            foreach (Student student in studentList)     
             {
                 string studentInfo = student.ToString();
                 Console.WriteLine(studentInfo);
