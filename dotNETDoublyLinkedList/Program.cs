@@ -37,5 +37,19 @@ namespace dotNETDoublyLinkedList
             }
             Console.ReadLine();
         }
+
+        static void DisplayWhetherEqual(Student student1, Student student2)
+        {
+            if (student1 == student2)
+            {
+                Console.WriteLine(string.Format("{0,12} == {1}", student1, student2));
+            }
+
+            else 
+            {
+                Console.WriteLine(string.Format("{0,12} != {1}", student1, student2));
+            }                
+            Console.ReadLine();
+        }
     }
 }

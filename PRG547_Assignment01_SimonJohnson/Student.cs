@@ -29,6 +29,8 @@ namespace PRG547_Assignment01_SimonJohnson
         }
 
         //Override the Equals() and GetHashCode()
+        // Selected Email and DateRegistered as the two best choices for Hashing as Email is unique,
+        // especially when combined with DateRegistered
         public override bool Equals(object obj)
         {
             if (obj == null)

@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace PRG547_Assignment01_SimonJohnson
 {
-    class LinkedListNode
+    public class LinkedListNode<T>
     {
+        public LinkedListNode(T value)
+        {
+            Value = value;
+        }
+
+        public T Value { get; set; }
+
+        public LinkedListNode<T> Next { get; set; }
+
     }
 }
