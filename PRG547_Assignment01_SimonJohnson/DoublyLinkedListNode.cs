@@ -17,5 +17,7 @@ namespace PRG547_Assignment01_SimonJohnson
 
         public DoublyLinkedListNode<T> Next { get; set; }
         public DoublyLinkedListNode<T> Previous { get; set; }
+
+
     }
 }

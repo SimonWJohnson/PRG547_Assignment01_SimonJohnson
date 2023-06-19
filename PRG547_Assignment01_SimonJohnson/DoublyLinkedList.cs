@@ -212,5 +212,6 @@ namespace PRG547_Assignment01_SimonJohnson
             Tail = null;
             Count = 0;
         }
+        
     }
 }
