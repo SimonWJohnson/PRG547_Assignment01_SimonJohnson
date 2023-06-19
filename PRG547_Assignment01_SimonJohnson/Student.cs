@@ -18,6 +18,34 @@ namespace PRG547_Assignment01_SimonJohnson
             DateRegistered = dateRegistered;
         }
 
+        // Equals
+        public static bool operator == (Student a, Student b) 
+        {
+            return object.Equals(a, b);
+        }
+        public static bool operator != (Student a, Student b) 
+        {
+            return !object.Equals(a, b);
+        }
+
+        //Override the Equals() and GetHashCode()
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+                return false;
+            if (ReferenceEquals(obj, this))
+                return true;
+            if (obj.GetType() != this.GetType())
+                return false;
+            Student stu = obj as Student;
+            return this.Email == stu.Email && this.DateRegistered == stu.DateRegistered;
+        }
+
+        public override int GetHashCode()
+        {
+            return this.Email.GetHashCode() ^ this.DateRegistered.GetHashCode();
+        }
+
         public override string ToString()
         {
             return $"Name: {Name}\nEmail: {Email}\nTelNum: {TelNum} Program: {Program}\nDate Registered: {DateRegistered}";
