@@ -35,6 +35,7 @@ namespace PRG547_Assignment01_SimonJohnson
 
             // Insert the rest of the list behind the head
             Head.Next = temp;
+            
             Count++;
 
             if (Count == 1)
@@ -195,6 +196,11 @@ namespace PRG547_Assignment01_SimonJohnson
                 yield return current.Value;
                 current = current.Next;
             }
+        }
+
+        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+        {
+            return ((System.Collections.Generic.IEnumerable<T>)this).GetEnumerator();
         }
 
         public void Clear()
