@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PRG547_Assignment01_SimonJohnson
 {
-    public class Course
+    public class Course : IComparable<Course>
     {
         public string CourseCode { get; set; }
         public string CourseName { get; set; }
@@ -57,6 +57,15 @@ namespace PRG547_Assignment01_SimonJohnson
         public override string ToString()
         {
             return $"Course Code: {CourseCode}\nCourse Name: {CourseName}\nCost: {Cost}";
+        }
+
+        public int CompareTo(Course other)
+        {
+            if (other == null)
+            {
+                return 1;
+            }
+            return this.GetHashCode().CompareTo(other.GetHashCode());
         }
     }
 }

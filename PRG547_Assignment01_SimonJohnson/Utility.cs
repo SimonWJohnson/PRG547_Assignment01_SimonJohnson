@@ -12,8 +12,8 @@ namespace PRG547_Assignment01_SimonJohnson
         // BubbleSort Ascending
         public void BubbleSortAsc<T>(DoublyLinkedList<T> List)
         {
-            int count = List.Count;
-            for (int i = 0; i < count -1; i++)
+            int count = List.Count; // Gets the number of elements in the doubly linked list
+            for (int i = 0; i < count -1; i++) // Iterates through the list
             {
                 DoublyLinkedListNode<T> current = List.Head;
                 for (int j = 0; j < count - 1 - i; j++)
@@ -52,10 +52,10 @@ namespace PRG547_Assignment01_SimonJohnson
         }
 
 
-
-
         /* Searching Algoritms */
         // Binary Search
+
+
 
         // Sequential Search
     }

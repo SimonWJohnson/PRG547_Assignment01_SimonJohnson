@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PRG547_Assignment01_SimonJohnson
 {
-    public class Student : Person
+    public class Student : Person, IComparable<Student>
     {
         public string Program { get; set; }
         public DateTime DateRegistered { get; set; }
@@ -58,5 +58,16 @@ namespace PRG547_Assignment01_SimonJohnson
             Console.WriteLine($"Name: {Name}\nEmail: {Email}\nTelNum: {TelNum}");
             Console.WriteLine($"Program: {Program}\nDate Registered: {DateRegistered}");
         }
+
+        public int CompareTo(Student other)
+        {
+            if (other == null)
+            {
+                return 1;
+            }
+            return this.GetHashCode().CompareTo(other.GetHashCode());
+        }
+
+
     }
 }
