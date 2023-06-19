@@ -19,7 +19,7 @@ namespace PRG547_Assignment01_SimonJohnson
                 for (int j = 0; j < count - 1 - i; j++) // Inner loop iterates from the head to the node before the last unsorted element, 
                 {
                     DoublyLinkedListNode<T> nextNode = current.Next; // Gets the next node after the current node, compare & swap with current with next node
-                    if (current.GetHashCode() > nextNode.GetHashCode()) // Condition to check if current node's hash code is greater than the next node 
+                    if (current.Value.GetHashCode() > nextNode.Value.GetHashCode()) // Condition to check if current node's hash code is greater than the next node 
                     {
                         T temp = current.Value; // Temporary variable to store the value of the current node
                         current.Value = nextNode.Value; // Assigns the  value of the next node to the current node
@@ -40,7 +40,7 @@ namespace PRG547_Assignment01_SimonJohnson
                 for (int j = 0; j < count - 1; j++)
                 {
                     DoublyLinkedListNode<T> nextNode = current.Next;
-                    if (current.GetHashCode() < nextNode.GetHashCode())
+                    if (current.Value.GetHashCode() < nextNode.Value.GetHashCode())
                     {
                         T temp = current.Value;
                         current.Value = nextNode.Value;
@@ -54,19 +54,13 @@ namespace PRG547_Assignment01_SimonJohnson
         // Get Middle method to 
         public DoublyLinkedListNode<T> GetMiddle<T>(DoublyLinkedListNode<T> left, DoublyLinkedListNode<T> right) // represents leftmost and rightmost nodes
         {
-            if (left == null)
-                return null;
 
             DoublyLinkedListNode<T> slow = left; // moves one step at a time
-            DoublyLinkedListNode<T> fast = left.Next; // moves two steps at a time
-            while (fast != right) // iterates until the fast pointer reaches the right node
+            DoublyLinkedListNode<T> fast = left; // moves two steps at a time
+            while (fast != right && fast.Next != right) // iterates until the fast pointer reaches the right node
             {
-                fast = fast.Next; // fast pointer moves one step forward
-                if (fast != right) // if the fast pointer is not equal to right, both pointers move ahead
-                {
-                    slow = slow.Next; // moves one step at a time
-                    fast = fast.Next; // moves two steps
-                }
+                slow = slow.Next;
+                fast = fast.Next.Next;
             }
             // Speed discrepacy results in the fast node reaching the end (right node), while slow points to the middle node
             // Returns middle node
@@ -81,7 +75,7 @@ namespace PRG547_Assignment01_SimonJohnson
         // elseif x is greater than the mid element, search on right half
         // elseif x is smaller than middle element, search on left half
 
-        private DoublyLinkedListNode<T> BinarySearch<T>(DoublyLinkedList<T> list, T value)
+        public DoublyLinkedListNode<T> BinarySearch<T>(DoublyLinkedList<T> list, T value) where T :IComparable<T>
         {
             DoublyLinkedListNode<T> left = list.Head;
             DoublyLinkedListNode<T> right = list.Tail;
@@ -89,25 +83,61 @@ namespace PRG547_Assignment01_SimonJohnson
             while (left != null && right != null && left != right.Next)
             {
                 DoublyLinkedListNode<T> middle = GetMiddle(left, right);
-                if (middle.Value.GetHashCode() == 0)
+                if (middle.Value.GetHashCode().CompareTo(value.GetHashCode()) == 0)
                 {
                     return middle;
                 }
-                else if (middle.Value.GetHashCode() > 0)
+                else if (middle.Value.GetHashCode().CompareTo(value.GetHashCode()) > 0)
                 {
-                    right = middle.Previous;
+
+                    left = middle.Next; 
                 }
                 else
                 {
-                    left = middle.Next;
+                    right = middle.Previous;
                 }
             }
             return null;
         }
 
+        // Sequential Search - LinkedList
+        public LinkedListNode<T> SingleSequentialSearch<T>(LinkedList<T> list, T value) where T : IComparable<T>
+        {
+            LinkedListNode<T> current = list.Head;
+            int Count = list.Count;
 
+            for (int i = 0; i < Count; i++)
+            {
+                if (current.Value.CompareTo(value) == 0)
+                {
+                    return current;
+                }
+                current = current.Next;
+            }
 
+            return null;
+        }
 
-        // Sequential Search
+        // Sequential Search - DoublyLinkedList
+        public DoublyLinkedListNode<T> SequentialSearch<T>(DoublyLinkedList<T> list, T value) where T : IComparable<T>
+        {
+            DoublyLinkedListNode<T> current = list.Head;
+            int Count = list.Count;           
+
+            for (int i = 0; i < Count; i++)
+            {
+                if (current.Value.CompareTo(value) == 0)
+                {
+                    return current;
+                }
+
+                current = current.Next;
+            }
+
+            return null;
+        }
+
+        
+
     }
 }
