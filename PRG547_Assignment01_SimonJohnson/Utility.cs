@@ -10,11 +10,47 @@ namespace PRG547_Assignment01_SimonJohnson
     {
         /* Sorting Algorithms */
         // BubbleSort Ascending
+        public void BubbleSortAsc<T>(DoublyLinkedList<T> List)
+        {
+            int count = List.Count;
+            for (int i = 0; i < count -1; i++)
+            {
+                DoublyLinkedListNode<T> current = List.Head;
+                for (int j = 0; j < count - 1 - i; j++)
+                {
+                    DoublyLinkedListNode<T> nextNode = current.Next;
+                    if (current.GetHashCode() > nextNode.GetHashCode())
+                    {
+                        T temp = current.Value;
+                        current.Value = nextNode.Value;
+                        nextNode.Value = temp;
+                    }
+                    current = current.Next;
+                }
+            }
+        }
 
+        // Descending BubbleSort
+        public void BubbleSortDesc<T>(DoublyLinkedList<T> List)
+        {
+            int count = List.Count;
+            for (int i = 0; i < count - 1; i++)
+            {
+                DoublyLinkedListNode<T> current = List.Head;
+                for (int j = 0; j < count - 1; j++)
+                {
+                    DoublyLinkedListNode<T> nextNode = current.Next;
+                    if (current.GetHashCode() < nextNode.GetHashCode())
+                    {
+                        T temp = current.Value;
+                        current.Value = nextNode.Value;
+                        nextNode.Value = temp;
+                    }
+                    current = current.Next;
+                }
+            }
+        }
 
-
-
-        // BubbleSort Descending
 
 
 
