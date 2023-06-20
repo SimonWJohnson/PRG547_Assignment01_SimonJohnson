@@ -11,21 +11,28 @@ namespace PRG547_Assignment01_SimonJohnson
         /* Sorting Algorithms */
         public void SingleBubbleSortAsc<T>(LinkedList<T> List)
         {
-            int count = List.Count; // Gets the number of elements in the doubly linked list
-            for (int i = 0; i < count - 1; i++) // Outer loop Iterates through the list
+            try
             {
-                LinkedListNode<T> current = List.Head; // Initialises the current variable as the head node
-                for (int j = 0; j < count - 1 - i; j++) // Inner loop iterates from the head to the node before the last unsorted element, 
+                int count = List.Count; // Gets the number of elements in the doubly linked list
+                for (int i = 0; i < count - 1; i++) // Outer loop Iterates through the list
                 {
-                    LinkedListNode<T> nextNode = current.Next; // Gets the next node after the current node, compare & swap with current with next node
-                    if (current.Value.GetHashCode() > nextNode.Value.GetHashCode()) // Condition to check if current node's hash code is greater than the next node 
+                    LinkedListNode<T> current = List.Head; // Initialises the current variable as the head node
+                    for (int j = 0; j < count - 1 - i; j++) // Inner loop iterates from the head to the node before the last unsorted element, 
                     {
-                        T temp = current.Value; // Temporary variable to store the value of the current node
-                        current.Value = nextNode.Value; // Assigns the  value of the next node to the current node
-                        nextNode.Value = temp; // Assigns stored value of current node (in temp) to the next node
+                        LinkedListNode<T> nextNode = current.Next; // Gets the next node after the current node, compare & swap with current with next node
+                        if (current.Value.GetHashCode() > nextNode.Value.GetHashCode()) // Condition to check if current node's hash code is greater than the next node 
+                        {
+                            T temp = current.Value; // Temporary variable to store the value of the current node
+                            current.Value = nextNode.Value; // Assigns the  value of the next node to the current node
+                            nextNode.Value = temp; // Assigns stored value of current node (in temp) to the next node
+                        }
+                        current = current.Next; // Shifts the current node reference to the next node for the next iteration of the inner loop
                     }
-                    current = current.Next; // Shifts the current node reference to the next node for the next iteration of the inner loop
                 }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in SingleBubbleSortAsc method {ex}");
             }
         }
 
@@ -33,59 +40,81 @@ namespace PRG547_Assignment01_SimonJohnson
         // BubbleSort Ascending
         public void BubbleSortAsc<T>(DoublyLinkedList<T> List)
         {
-            int count = List.Count; // Gets the number of elements in the doubly linked list
-            for (int i = 0; i < count -1; i++) // Outer loop Iterates through the list
+            try
             {
-                DoublyLinkedListNode<T> current = List.Head; // Initialises the current variable as the head node
-                for (int j = 0; j < count - 1 - i; j++) // Inner loop iterates from the head to the node before the last unsorted element, 
+                int count = List.Count; // Gets the number of elements in the doubly linked list
+                for (int i = 0; i < count - 1; i++) // Outer loop Iterates through the list
                 {
-                    DoublyLinkedListNode<T> nextNode = current.Next; // Gets the next node after the current node, compare & swap with current with next node
-                    if (current.Value.GetHashCode() > nextNode.Value.GetHashCode()) // Condition to check if current node's hash code is greater than the next node 
+                    DoublyLinkedListNode<T> current = List.Head; // Initialises the current variable as the head node
+                    for (int j = 0; j < count - 1 - i; j++) // Inner loop iterates from the head to the node before the last unsorted element, 
                     {
-                        T temp = current.Value; // Temporary variable to store the value of the current node
-                        current.Value = nextNode.Value; // Assigns the  value of the next node to the current node
-                        nextNode.Value = temp; // Assigns stored value of current node (in temp) to the next node
+                        DoublyLinkedListNode<T> nextNode = current.Next; // Gets the next node after the current node, compare & swap with current with next node
+                        if (current.Value.GetHashCode() > nextNode.Value.GetHashCode()) // Condition to check if current node's hash code is greater than the next node 
+                        {
+                            T temp = current.Value; // Temporary variable to store the value of the current node
+                            current.Value = nextNode.Value; // Assigns the  value of the next node to the current node
+                            nextNode.Value = temp; // Assigns stored value of current node (in temp) to the next node
+                        }
+                        current = current.Next; // Shifts the current node reference to the next node for the next iteration of the inner loop
                     }
-                    current = current.Next; // Shifts the current node reference to the next node for the next iteration of the inner loop
                 }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in BubbleSortAsc method {ex}");
             }
         }
 
         // Descending BubbleSort
         public void BubbleSortDesc<T>(DoublyLinkedList<T> List)
         {
-            int count = List.Count;
-            for (int i = 0; i < count - 1; i++)
+            try
             {
-                DoublyLinkedListNode<T> current = List.Head;
-                for (int j = 0; j < count - 1; j++)
+                int count = List.Count;
+                for (int i = 0; i < count - 1; i++)
                 {
-                    DoublyLinkedListNode<T> nextNode = current.Next;
-                    if (current.Value.GetHashCode() < nextNode.Value.GetHashCode())
+                    DoublyLinkedListNode<T> current = List.Head;
+                    for (int j = 0; j < count - 1; j++)
                     {
-                        T temp = current.Value;
-                        current.Value = nextNode.Value;
-                        nextNode.Value = temp;
+                        DoublyLinkedListNode<T> nextNode = current.Next;
+                        if (current.Value.GetHashCode() < nextNode.Value.GetHashCode())
+                        {
+                            T temp = current.Value;
+                            current.Value = nextNode.Value;
+                            nextNode.Value = temp;
+                        }
+                        current = current.Next;
                     }
-                    current = current.Next;
                 }
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in BubbleSortDesc method {ex}");
+            }
         }
-        
+
         // Get Middle method
         public DoublyLinkedListNode<T> GetMiddle<T>(DoublyLinkedListNode<T> left, DoublyLinkedListNode<T> right) // represents leftmost and rightmost nodes
         {
-
-            DoublyLinkedListNode<T> slow = left; // moves one step at a time
-            DoublyLinkedListNode<T> fast = left; // moves two steps at a time
-            while (fast != right && fast.Next != right) // iterates until the fast pointer reaches the right node
+            try
             {
-                slow = slow.Next;
-                fast = fast.Next.Next;
+
+                DoublyLinkedListNode<T> slow = left; // moves one step at a time
+                DoublyLinkedListNode<T> fast = left; // moves two steps at a time
+                while (fast != right && fast.Next != right) // iterates until the fast pointer reaches the right node
+                {
+                    slow = slow.Next;
+                    fast = fast.Next.Next;
+                }
+                // Speed discrepacy results in the fast node reaching the end (right node), while slow points to the middle node
+                // Returns middle node
+                return slow;
             }
-            // Speed discrepacy results in the fast node reaching the end (right node), while slow points to the middle node
-            // Returns middle node
-            return slow;
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in GetMiddle method {ex}");
+                return null;
+            }
         }
 
         /* Searching Algoritms */
@@ -98,100 +127,131 @@ namespace PRG547_Assignment01_SimonJohnson
 
         public DoublyLinkedListNode<T> BinarySearch<T>(DoublyLinkedList<T> list, T value) where T :IComparable<T>
         {
-            DoublyLinkedListNode<T> left = list.Head;
-            DoublyLinkedListNode<T> right = list.Tail;
-
-            while (left != null && right != null && left != right.Next)
+            try
             {
-                DoublyLinkedListNode<T> middle = GetMiddle(left, right);
-                if (middle.Value.GetHashCode().CompareTo(value.GetHashCode()) == 0)
-                {
-                    return middle;
-                }
-                else if (middle.Value.GetHashCode().CompareTo(value.GetHashCode()) > 0)
-                {
+                DoublyLinkedListNode<T> left = list.Head;
+                DoublyLinkedListNode<T> right = list.Tail;
 
-                    left = middle.Next; 
-                }
-                else
+                while (left != null && right != null && left != right.Next)
                 {
-                    right = middle.Previous;
+                    DoublyLinkedListNode<T> middle = GetMiddle(left, right);
+                    if (middle.Value.GetHashCode().CompareTo(value.GetHashCode()) == 0)
+                    {
+                        return middle;
+                    }
+                    else if (middle.Value.GetHashCode().CompareTo(value.GetHashCode()) > 0)
+                    {
+
+                        left = middle.Next;
+                    }
+                    else
+                    {
+                        right = middle.Previous;
+                    }
                 }
+                return null;
             }
-            return null;
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in BinarySearch method {ex}");
+                return null;
+            }
         }
 
         // Binary search for SingleLinkedList normal binary search
         // CopyTo Array, search through this array
         public T SingleBinarySearch<T>(LinkedList<T> list, T value) where T : IComparable<T>
         {
-            T[] array = new T[list.Count];
-            list.CopyTo(array, 0);
-
-            int left = 0;
-            int right = array.Length -1;
-
-            while (left <= right)
+            try
             {
-                int mid = (left + right) / 2;
+                T[] array = new T[list.Count];
+                list.CopyTo(array, 0);
 
-                if (array[mid].CompareTo(value) == 0)
+                int left = 0;
+                int right = array.Length - 1;
+
+                while (left <= right)
                 {
-                    return array[mid];
+                    int mid = (left + right) / 2;
+
+                    if (array[mid].CompareTo(value) == 0)
+                    {
+                        return array[mid];
+                    }
+                    else if (array[mid].CompareTo(value) < 0)
+                    {
+                        left = mid + 1;
+                    }
+                    else
+                    {
+                        right = mid - 1;
+                    }
                 }
-                else if (array[mid].CompareTo(value) < 0)
-                {
-                    left = mid + 1;
-                }
-                else
-                {
-                    right = mid - 1;
-                }
+
+                return default;
             }
-
-            return default;
-
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in SingleBinarySearch method {ex}");
+                return default;
+            }
         }
 
 
         // Sequential Search - LinkedList
         public LinkedListNode<T> SingleSequentialSearch<T>(LinkedList<T> list, T value) where T : IComparable<T>
         {
-            LinkedListNode<T> current = list.Head;
-            int Count = list.Count;
-
-            for (int i = 0; i < Count; i++)
+            try
             {
-                if (current.Value.CompareTo(value) == 0)
-                {
-                    return current;
-                }
-                current = current.Next;
-            }
+                LinkedListNode<T> current = list.Head;
+                int Count = list.Count;
 
-            return null;
+                for (int i = 0; i < Count; i++)
+                {
+                    if (current.Value.CompareTo(value) == 0)
+                    {
+                        return current;
+                    }
+                    current = current.Next;
+                }
+
+                return null;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in SingleSequentialSearch method {ex}");
+                return null;
+            }
         }
 
         // Sequential Search - DoublyLinkedList
         public DoublyLinkedListNode<T> SequentialSearch<T>(DoublyLinkedList<T> list, T value) where T : IComparable<T>
         {
-            DoublyLinkedListNode<T> current = list.Head;
-            int Count = list.Count;           
-
-            for (int i = 0; i < Count; i++)
+            try
             {
-                if (current.Value.CompareTo(value) == 0)
+                DoublyLinkedListNode<T> current = list.Head;
+                int Count = list.Count;
+
+                for (int i = 0; i < Count; i++)
                 {
-                    return current;
+                    if (current.Value.CompareTo(value) == 0)
+                    {
+                        return current;
+                    }
+
+                    current = current.Next;
                 }
 
-                current = current.Next;
+                return null;
             }
-
-            return null;
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in SequentialSearch method {ex}");
+                return null;
+            }
         }
 
-        
+
 
     }
 }
