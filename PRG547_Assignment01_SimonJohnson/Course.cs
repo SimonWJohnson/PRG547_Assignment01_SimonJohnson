@@ -56,7 +56,7 @@ namespace PRG547_Assignment01_SimonJohnson
 
         public override string ToString()
         {
-            return $"Course Code: {CourseCode}\nCourse Name: {CourseName}\nCost: {Cost}";
+            return $"\nCourse Code: {CourseCode}\nCourse Name: {CourseName}\nCost: {Cost}";
         }
 
         public int CompareTo(Course other)

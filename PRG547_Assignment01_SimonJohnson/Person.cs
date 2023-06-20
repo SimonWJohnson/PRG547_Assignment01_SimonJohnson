@@ -24,5 +24,10 @@ namespace PRG547_Assignment01_SimonJohnson
 
         // Abstract method
         public abstract void DisplayPerson();
+
+        public void setAddress(string number, string street, string suburb, string postcode, string state)
+        {
+            Address = new Address(number, street, suburb, postcode, state);
+        }
     }
 }

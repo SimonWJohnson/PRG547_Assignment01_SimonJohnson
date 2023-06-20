@@ -9,6 +9,27 @@ namespace PRG547_Assignment01_SimonJohnson
     public class Utility
     {
         /* Sorting Algorithms */
+        public void SingleBubbleSortAsc<T>(LinkedList<T> List)
+        {
+            int count = List.Count; // Gets the number of elements in the doubly linked list
+            for (int i = 0; i < count - 1; i++) // Outer loop Iterates through the list
+            {
+                LinkedListNode<T> current = List.Head; // Initialises the current variable as the head node
+                for (int j = 0; j < count - 1 - i; j++) // Inner loop iterates from the head to the node before the last unsorted element, 
+                {
+                    LinkedListNode<T> nextNode = current.Next; // Gets the next node after the current node, compare & swap with current with next node
+                    if (current.Value.GetHashCode() > nextNode.Value.GetHashCode()) // Condition to check if current node's hash code is greater than the next node 
+                    {
+                        T temp = current.Value; // Temporary variable to store the value of the current node
+                        current.Value = nextNode.Value; // Assigns the  value of the next node to the current node
+                        nextNode.Value = temp; // Assigns stored value of current node (in temp) to the next node
+                    }
+                    current = current.Next; // Shifts the current node reference to the next node for the next iteration of the inner loop
+                }
+            }
+        }
+
+
         // BubbleSort Ascending
         public void BubbleSortAsc<T>(DoublyLinkedList<T> List)
         {
@@ -112,13 +133,13 @@ namespace PRG547_Assignment01_SimonJohnson
 
             while (left <= right)
             {
-                int mid = left + right / 2;
+                int mid = (left + right) / 2;
 
                 if (array[mid].CompareTo(value) == 0)
                 {
                     return array[mid];
                 }
-                else if (array[mid].CompareTo(value) > 0)
+                else if (array[mid].CompareTo(value) < 0)
                 {
                     left = mid + 1;
                 }

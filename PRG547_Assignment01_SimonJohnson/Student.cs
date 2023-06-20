@@ -11,17 +11,18 @@ namespace PRG547_Assignment01_SimonJohnson
         public string Program { get; set; }
         public DateTime DateRegistered { get; set; }
 
+        public Enrollment Enrollment { get; set; }
+
         // Constructor
         public Student(string name, string email, string telNum, 
             string number, string street, string suburb, string postcode, string state, 
             string program, DateTime dateRegistered, 
-            DateTime dateEnrolled, string grade, string semester, 
-            Course course)
+            DateTime dateEnrolled, string grade, string semester)
             : base(name, email, telNum, number, street, suburb, postcode, state) 
         {
             Program = program;
             DateRegistered = dateRegistered;
-            Enrollment enrollemnt = new Enrollment(dateEnrolled, grade, semester);
+            Enrollment = new Enrollment(dateEnrolled, grade, semester);
         }
 
         // Equals
@@ -56,7 +57,7 @@ namespace PRG547_Assignment01_SimonJohnson
 
         public override string ToString()
         {
-            return $"Name: {Name}\nEmail: {Email}\nTelNum: {TelNum} \nProgram: {Program}\nDate Registered: {DateRegistered}";
+            return $"Name: {Name}\nEmail: {Email}\nTelNum: {TelNum} \nProgram: {Program}\nDate Registered: {DateRegistered}\nEnrollment: {Enrollment}";
         }
 
         public override void DisplayPerson()
