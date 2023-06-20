@@ -24,5 +24,10 @@ namespace PRG547_Assignment01_SimonJohnson
             State = state;
         }
 
+        // ToString
+        public override string ToString()
+        {
+            return $"Number: {Number}\nStreet: {Street}\nSuburb: {Suburb} \nPostcode: {Postcode}\nState : {State}";
+        }
     }
 }

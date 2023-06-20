@@ -56,7 +56,7 @@ namespace PRG547_Assignment01_SimonJohnson
 
         public override string ToString()
         {
-            return $"Name: {Name}\nEmail: {Email}\nTelNum: {TelNum} Program: {Program}\nDate Registered: {DateRegistered}";
+            return $"Name: {Name}\nEmail: {Email}\nTelNum: {TelNum} \nProgram: {Program}\nDate Registered: {DateRegistered}";
         }
 
         public override void DisplayPerson()

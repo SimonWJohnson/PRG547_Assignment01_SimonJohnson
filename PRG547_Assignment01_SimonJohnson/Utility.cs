@@ -51,7 +51,7 @@ namespace PRG547_Assignment01_SimonJohnson
             }
         }
         
-        // Get Middle method to 
+        // Get Middle method
         public DoublyLinkedListNode<T> GetMiddle<T>(DoublyLinkedListNode<T> left, DoublyLinkedListNode<T> right) // represents leftmost and rightmost nodes
         {
 
@@ -101,8 +101,37 @@ namespace PRG547_Assignment01_SimonJohnson
         }
 
         // Binary search for SingleLinkedList normal binary search
+        // CopyTo Array, search through this array
+        public T SingleBinarySearch<T>(LinkedList<T> list, T value) where T : IComparable<T>
+        {
+            T[] array = new T[list.Count];
+            list.CopyTo(array, 0);
 
-        // CopyTo Array, sear through this array
+            int left = 0;
+            int right = array.Length -1;
+
+            while (left <= right)
+            {
+                int mid = left + right / 2;
+
+                if (array[mid].CompareTo(value) == 0)
+                {
+                    return array[mid];
+                }
+                else if (array[mid].CompareTo(value) > 0)
+                {
+                    left = mid + 1;
+                }
+                else
+                {
+                    right = mid - 1;
+                }
+            }
+
+            return default;
+
+        }
+
 
         // Sequential Search - LinkedList
         public LinkedListNode<T> SingleSequentialSearch<T>(LinkedList<T> list, T value) where T : IComparable<T>

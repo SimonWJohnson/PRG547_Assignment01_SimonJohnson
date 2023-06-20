@@ -13,7 +13,7 @@ namespace PRG547_Assignment01_SimonJohnson
 
         public string Semester { get; set; }
 
-        public Course Course { get; set; }
+        public Course[] Courses { get; set; }
 
         // Constructor
         public Enrollment(DateTime dateEnrolled, string grade, string semester)
@@ -25,9 +25,13 @@ namespace PRG547_Assignment01_SimonJohnson
 
         public void AddCourse(Course course)
         {
-            Course = Course;
+            Courses.Append(course);
         }
 
+        public override string ToString()
+        {
+            return $"Date Enrolled: {DateEnrolled}\nGrade: {Grade}\nSemester: {Semester}";
+        }
 
     }
 }
