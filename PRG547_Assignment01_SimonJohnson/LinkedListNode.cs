@@ -17,5 +17,7 @@ namespace PRG547_Assignment01_SimonJohnson
 
         public LinkedListNode<T> Next { get; set; }
 
+        public LinkedListNode<T> Previous { get; set; }
+
     }
 }

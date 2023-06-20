@@ -18,6 +18,7 @@ namespace dotNETDoublyLinkedList
             studentList.Add(new Student("Simon", "simon@email.com", "08 555 6667", "100", "Currie Street", "Adelaide", "5000", "SA", "PRG547", new DateTime(2022, 05, 22), new DateTime(2022, 06, 01), "PASS", "Semester 01"));
             studentList.AddLast(new Student("Jesse", "jesse@email.com", "08 555 7777", "101", "Currie Street", "Adelaide", "5000", "SA", "PRG547", new DateTime(2022, 05, 22), new DateTime(2022, 06, 01), "PASS", "Semester 01"));
             studentList.AddLast(new Student("Andre", "Andre.email.com", "08 555 8888", "102", "Currie Street", "Adelaide", "5000", "SA", "PRG547", new DateTime(2022, 05, 22), new DateTime(2022, 06, 01), "PASS", "Semester 01"));
+            studentList.AddLast(new Student("Jamie", "jamie@email.com", "08 555 6667", "107", "Currie Street", "Adelaide", "5000", "SA", "PRG547", new DateTime(2022, 05, 22), new DateTime(2022, 06, 01), "PASS", "Semester 01"));
             studentList.AddLast(new Student("Noah", "Noah.email.com", "08 555 9999", "103", "Currie Street", "Adelaide", "5000", "SA", "PRG547", new DateTime(2022, 05, 22), new DateTime(2022, 06, 01), "PASS", "Semester 01"));
 
             foreach (Student student in studentList)
@@ -68,8 +69,9 @@ namespace dotNETDoublyLinkedList
 
 
             Student Simon = new Student("Simon", "simon@email.com", "08 555 6667", "100", "Currie Street", "Adelaide", "5000", "SA", "PRG547", new DateTime(2022, 05, 22), new DateTime(2022, 06, 01), "PASS", "Semester 01");
-            DoublyLinkedListNode<Student> nl = tools.BinarySearch<Student>(studentList, Simon);
-            DoublyLinkedListNode<Student> nl2 = tools.SequentialSearch<Student>(studentList, Simon);
+            Student Jamie = new Student("Jamie", "jamie@email.com", "08 555 6667", "107", "Currie Street", "Adelaide", "5000", "SA", "PRG547", new DateTime(2022, 05, 22), new DateTime(2022, 06, 01), "PASS", "Semester 01");
+            DoublyLinkedListNode<Student> nl = tools.BinarySearch<Student>(studentList, Jamie);
+            DoublyLinkedListNode<Student> nl2 = tools.SequentialSearch<Student>(studentList, Jamie);
             Console.WriteLine(nl.Value);
             Console.WriteLine(nl2.Value);
             Console.ReadLine();

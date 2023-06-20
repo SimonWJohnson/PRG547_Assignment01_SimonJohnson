@@ -20,8 +20,8 @@ namespace Assignment_01_Tests
         public void Init()
         {
             // Construct new Student
-            Student student1 = new Student("Simon", "simon@email.com", "08 555 6667", "100", "Currie Street", "Adelaide", "5000", "SA", "PRG547", new DateTime(2022, 05, 22), new DateTime(2022, 06, 01), "PASS", "Semester 01");
-            Student student2 = new Student("jamie", "jamie@email.com", "08 555 8888", "104", "Currie Street", "Adelaide", "5000", "SA", "PRG547", new DateTime(2022, 05, 22), new DateTime(2022, 06, 01), "PASS", "Semester 01");
+            student1 = new Student("Simon", "simon@email.com", "08 555 6667", "100", "Currie Street", "Adelaide", "5000", "SA", "PRG547", new DateTime(2022, 05, 22), new DateTime(2022, 06, 01), "PASS", "Semester 01");
+            student2 = new Student("jamie", "jamie@email.com", "08 555 8888", "104", "Currie Street", "Adelaide", "5000", "SA", "PRG547", new DateTime(2022, 05, 22), new DateTime(2022, 06, 01), "PASS", "Semester 01");
 
             // Construct new Student List
             studentList = new PRG547_Assignment01_SimonJohnson.LinkedList<Student>();
@@ -33,14 +33,14 @@ namespace Assignment_01_Tests
         }
 
         [Test]
-        public void addStudentToHead()
+        public void addStudentToHead() // Working
         {
             studentList.AddFirst(student1);
             Assert.AreEqual(student1, studentList.Head.Value);
         }
 
         [Test]
-        public void addStudentToTail()
+        public void addStudentToTail() // Working
         {
             studentList.AddLast(student2);
             Assert.AreEqual(student2, studentList.Tail.Value);
@@ -53,15 +53,17 @@ namespace Assignment_01_Tests
         }
 
         [Test]
-        public void removeFromHead()
+        public void removeFromHead() // Working
         {
+            studentList.AddFirst(student1);
             studentList.RemoveFirst();
             Assert.AreNotEqual(student1, studentList.Head.Value);
         }
 
         [Test]
-        public void removeFromTail()
+        public void removeFromTail() // Working
         {
+            studentList.AddLast(student2);
             studentList.RemoveLast();
             Assert.AreNotEqual(student2, studentList.Tail.Value);
         }
