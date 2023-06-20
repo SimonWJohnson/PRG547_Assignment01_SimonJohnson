@@ -125,7 +125,7 @@ namespace PRG547_Assignment01_SimonJohnson
         // elseif x is greater than the mid element, search on right half
         // elseif x is smaller than middle element, search on left half
 
-        public DoublyLinkedListNode<T> BinarySearch<T>(DoublyLinkedList<T> list, T value) where T :IComparable<T>
+        public DoublyLinkedListNode<T> BinarySearch<T>(DoublyLinkedList<T> list, T value) where T : IComparable<T>
         {
             try
             {
@@ -250,6 +250,63 @@ namespace PRG547_Assignment01_SimonJohnson
                 return null;
             }
         }
+
+        // Part 8: Testing
+        public T LinearSearchArray<T>(List<T> list, T value)
+        {
+            try
+            {
+                for (int i = 0; i < list.Count - 1; i++)
+                {
+                    if (list[i].Equals(value))
+                    {
+                        return list[i];
+                    }
+                }
+                return default;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in LinearSearchArray method {ex}");
+                return default;
+            }
+        }
+
+        public T BinarySearchArray<T>(List<T> list, T value) where T : IComparable<T>
+        {
+            try
+            {
+                list.Sort();
+                int left = 0;
+                int right = list.Count - 1;
+
+                while (left <= right)
+                {
+                    int mid = (left + right) / 2;
+
+                    if (list[mid].CompareTo(value) == 0)
+                    {
+                        return list[mid];
+                    }
+                    else if (list[mid].CompareTo(value) < 0)
+                    {
+                        left = mid + 1;
+                    }
+                    else
+                    {
+                        right = mid - 1;
+                    }
+                }
+
+                return default;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in BinarySearchArray method {ex}");
+                return default;
+            }
+        }
+
 
 
 
