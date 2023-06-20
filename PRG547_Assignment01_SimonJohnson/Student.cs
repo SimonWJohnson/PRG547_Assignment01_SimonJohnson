@@ -12,10 +12,16 @@ namespace PRG547_Assignment01_SimonJohnson
         public DateTime DateRegistered { get; set; }
 
         // Constructor
-        public Student(string name, string email, string telNum, string program, DateTime dateRegistered): base(name, email, telNum) 
+        public Student(string name, string email, string telNum, 
+            string number, string street, string suburb, string postcode, string state, 
+            string program, DateTime dateRegistered, 
+            DateTime dateEnrolled, string grade, string semester, 
+            Course course)
+            : base(name, email, telNum, number, street, suburb, postcode, state) 
         {
             Program = program;
             DateRegistered = dateRegistered;
+            Enrollment enrollemnt = new Enrollment(dateEnrolled, grade, semester);
         }
 
         // Equals
@@ -39,8 +45,8 @@ namespace PRG547_Assignment01_SimonJohnson
                 return true;
             if (obj.GetType() != this.GetType())
                 return false;
-            Student stu = obj as Student;
-            return this.Email == stu.Email && this.DateRegistered == stu.DateRegistered;
+            Student student = obj as Student;
+            return this.Email == student.Email && this.DateRegistered == student.DateRegistered;
         }
 
         public override int GetHashCode()

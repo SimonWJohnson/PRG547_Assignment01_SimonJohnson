@@ -13,10 +13,10 @@ namespace dotNETDoublyLinkedList
         {
             //Testing the DoublyLinkedList
             DoublyLinkedList<Student> studentList = new DoublyLinkedList<Student>();
-            studentList.Add(new Student("Simon", "simon@email.com", "08 555 6667", "PRG547", new DateTime(2022, 05, 22)));
-            studentList.AddLast(new Student("Jesse", "jesse@email.com", "08 555 7777", "PRG547", DateTime.Now));
-            studentList.AddLast(new Student("Andre", "Andre.email.com", "08 555 8888", "PRG547", DateTime.Now));
-            studentList.AddLast(new Student("Noah", "Noah.email.com", "08 555 9999", "PRG547", DateTime.Now));
+            //studentList.Add(new Student("Simon", "simon@email.com", "08 555 6667", "PRG547", new DateTime(2022, 05, 22)));
+            //studentList.AddLast(new Student("Jesse", "jesse@email.com", "08 555 7777", "PRG547", DateTime.Now));
+            //studentList.AddLast(new Student("Andre", "Andre.email.com", "08 555 8888", "PRG547", DateTime.Now));
+            //studentList.AddLast(new Student("Noah", "Noah.email.com", "08 555 9999", "PRG547", DateTime.Now));
 
             foreach (Student student in studentList)
             {
@@ -63,10 +63,10 @@ namespace dotNETDoublyLinkedList
             }
             Console.ReadLine();
 
-            Student Simon = new Student("Simon", "simon@email.com", "08 555 6667", "PRG547", new DateTime(2022,05,22));
+            //Student Simon = new Student("Simon", "simon@email.com", "08 555 6667", "PRG547", new DateTime(2022,05,22));
             //DoublyLinkedListNode<Student> nl = tools.BinarySearch<Student>(studentList, Simon);
-            DoublyLinkedListNode<Student> nl = tools.SequentialSearch<Student>(studentList, Simon);
-            Console.WriteLine(nl.Value);
+            //DoublyLinkedListNode<Student> nl = tools.SequentialSearch<Student>(studentList, Simon);
+            //Console.WriteLine(nl.Value);
             Console.ReadLine();
 
 

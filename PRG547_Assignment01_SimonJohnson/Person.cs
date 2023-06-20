@@ -11,13 +11,15 @@ namespace PRG547_Assignment01_SimonJohnson
         public string Name { get; set; }
         public string Email { get; set; }
         public string TelNum { get; set; }
+        public Address Address { get; set; }
 
         // Constructor
-        public Person(string name, string email, string telNum) 
+        public Person(string name, string email, string telNum, string number, string street, string suburb, string postcode, string state) 
         {
             Name = name;
             Email = email;
             TelNum = telNum;
+            Address address = new Address(number, street, suburb, postcode, state);
         }
 
         // Abstract method

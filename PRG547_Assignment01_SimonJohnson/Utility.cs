@@ -100,6 +100,10 @@ namespace PRG547_Assignment01_SimonJohnson
             return null;
         }
 
+        // Binary search for SingleLinkedList normal binary search
+
+        // CopyTo Array, sear through this array
+
         // Sequential Search - LinkedList
         public LinkedListNode<T> SingleSequentialSearch<T>(LinkedList<T> list, T value) where T : IComparable<T>
         {
