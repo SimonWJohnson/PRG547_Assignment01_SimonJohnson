@@ -56,6 +56,7 @@
     <Compile Include="DoublyLinkedList_Testing.cs" />
     <Compile Include="LinkedList_Testing.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SearchingAndSorting_Testing.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
