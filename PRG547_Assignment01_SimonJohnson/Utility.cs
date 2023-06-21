@@ -66,6 +66,7 @@ namespace PRG547_Assignment01_SimonJohnson
         }
 
         // Descending BubbleSort
+        // 
         public void BubbleSortDesc<T>(DoublyLinkedList<T> List)
         {
             try
@@ -160,6 +161,7 @@ namespace PRG547_Assignment01_SimonJohnson
 
         // Binary search for SingleLinkedList normal binary search
         // CopyTo Array, search through this array
+        // ERROR HERE?
         public T SingleBinarySearch<T>(LinkedList<T> list, T value) where T : IComparable<T>
         {
             try
@@ -178,7 +180,7 @@ namespace PRG547_Assignment01_SimonJohnson
                     {
                         return array[mid];
                     }
-                    else if (array[mid].CompareTo(value) < 0)
+                    else if (array[mid].CompareTo(value) < 0) // ERROR HERE? - '<' is the correct operand
                     {
                         left = mid + 1;
                     }
@@ -272,7 +274,7 @@ namespace PRG547_Assignment01_SimonJohnson
             }
         }
 
-        // HAS NOT BEEN CALLED _ RESPECTIVE QUESTION NOT ANSWERED **
+        
         public T BinarySearchArray<T>(List<T> list, T value) where T : IComparable<T>
         {
             try

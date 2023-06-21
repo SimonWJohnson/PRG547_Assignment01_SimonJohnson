@@ -35,7 +35,7 @@ namespace dotNETDoublyLinkedList
             Console.ReadLine();
 
             // ToString
-            foreach (Student student in studentList)     
+            foreach (Student student in studentList)
             {
                 string studentInfo = student.ToString();
                 Console.WriteLine(studentInfo);
@@ -79,64 +79,50 @@ namespace dotNETDoublyLinkedList
 
             //********************************************************************************************************************************************************//
             // Testing the LinkedList
-            //PRG547_Assignment01_SimonJohnson.LinkedList<Student> studentList2 = new PRG547_Assignment01_SimonJohnson.LinkedList<Student>();
-            //Course course2 = new Course("PRG547", "C Sharp", 100.00);
-            //Course course3 = new Course("PRG666", "KTs", 666.66);
-            //studentList2.Add(new Student("Simon", "simon@email.com", "08 555 6667", "100", "Currie Street", "Adelaide", "5000", "SA", "PRG547", new DateTime(2022, 05, 22), new DateTime(2022, 06, 01), "PASS", "Semester 01"));
-            //studentList2.AddLast(new Student("Jesse", "jesse@email.com", "08 555 7777", "101", "Currie Street", "Adelaide", "5000", "SA", "PRG547", new DateTime(2022, 05, 22), new DateTime(2022, 06, 01), "PASS", "Semester 01"));
-            //studentList2.AddLast(new Student("Andre", "Andre.email.com", "08 555 8888", "102", "Currie Street", "Adelaide", "5000", "SA", "PRG547", new DateTime(2022, 05, 22), new DateTime(2022, 06, 01), "PASS", "Semester 01"));
-            //studentList2.AddLast(new Student("Noah", "Noah.email.com", "08 555 9999", "103", "Currie Street", "Adelaide", "5000", "SA", "PRG547", new DateTime(2022, 05, 22), new DateTime(2022, 06, 01), "PASS", "Semester 01"));
+            PRG547_Assignment01_SimonJohnson.LinkedList<Student> studentList2 = new PRG547_Assignment01_SimonJohnson.LinkedList<Student>();
+            Course course2 = new Course("PRG547", "C Sharp", 100.00);
+            Course course3 = new Course("PRG666", "KTs", 666.66);
+            studentList2.Add(new Student("Simon", "simon@email.com", "08 555 6667", "100", "Currie Street", "Adelaide", "5000", "SA", "PRG547", new DateTime(2022, 05, 22), new DateTime(2022, 06, 01), "PASS", "Semester 01"));
+            studentList2.AddLast(new Student("Jesse", "jesse@email.com", "08 555 7777", "101", "Currie Street", "Adelaide", "5000", "SA", "PRG547", new DateTime(2022, 05, 22), new DateTime(2022, 06, 01), "PASS", "Semester 01"));
+            studentList2.AddLast(new Student("Andre", "Andre.email.com", "08 555 8888", "102", "Currie Street", "Adelaide", "5000", "SA", "PRG547", new DateTime(2022, 05, 22), new DateTime(2022, 06, 01), "PASS", "Semester 01"));
+            studentList2.AddLast(new Student("Noah", "Noah.email.com", "08 555 9999", "103", "Currie Street", "Adelaide", "5000", "SA", "PRG547", new DateTime(2022, 05, 22), new DateTime(2022, 06, 01), "PASS", "Semester 01"));
 
-            //// Testing the singleBinarySearch
-            //tools.SingleBubbleSortAsc<Student>(studentList2);
-            //Student test = tools.SingleBinarySearch<Student>(studentList2, new Student("Andre", "Andre.email.com", "08 555 8888", "102", "Currie Street", "Adelaide", "5000", "SA", "PRG547", new DateTime(2022, 05, 22), new DateTime(2022, 06, 01), "PASS", "Semester 01"));
-            //Console.WriteLine(test);
-            //Console.ReadLine();
+            // Testing the singleBinarySearch
+            tools.SingleBubbleSortAsc<Student>(studentList2);
+            Student test = tools.SingleBinarySearch<Student>(studentList2, new Student("Andre", "Andre.email.com", "08 555 8888", "102", "Currie Street", "Adelaide", "5000", "SA", "PRG547", new DateTime(2022, 05, 22), new DateTime(2022, 06, 01), "PASS", "Semester 01"));
+            Console.WriteLine(test);
+            Console.ReadLine();
 
-            //// AddCourse Method
-            //Student jamie = new Student("jamie", "jamie@email.com", "08 555 8888", "104", "Currie Street", "Adelaide", "5000", "SA", "PRG547", new DateTime(2022, 05, 22), new DateTime(2022, 06, 01), "PASS", "Semester 01");
-            //jamie.Enrollment.AddCourse(course3);
-            //Console.WriteLine(jamie);
-            //Console.ReadLine();
+            // AddCourse Method
+            Student jamie = new Student("jamie", "jamie@email.com", "08 555 8888", "104", "Currie Street", "Adelaide", "5000", "SA", "PRG547", new DateTime(2022, 05, 22), new DateTime(2022, 06, 01), "PASS", "Semester 01");
+            jamie.Enrollment.AddCourse(course3);
+            Console.WriteLine(jamie);
+            Console.ReadLine();
 
-            //foreach (Student student in studentList2)
-            //{
-            //    student.DisplayPerson();
-            //}
-            //Console.ReadLine(); // This was a weird one :(
+            foreach (Student student in studentList2)
+            {
+                student.DisplayPerson();
+            }
+            Console.ReadLine(); // This was a weird one :(
 
-            //studentList2.RemoveLast();
-            //foreach (Student student in studentList2)
-            //{
-            //    student.DisplayPerson();
-            //}
-            //Console.ReadLine();
+            studentList2.RemoveLast();
+            foreach (Student student in studentList2)
+            {
+                student.DisplayPerson();
+            }
+            Console.ReadLine();
 
-            //foreach (Student student in studentList2)
-            //{
-            //    string studentInfo = student.ToString();
-            //    Console.WriteLine(studentInfo);
-            //}
-            //Console.ReadLine();
+            foreach (Student student in studentList2)
+            {
+                string studentInfo = student.ToString();
+                Console.WriteLine(studentInfo);
+            }
+            Console.ReadLine();
 
             //****************************************************************************************************************************************************************************************//
-            
+
 
         }
-
-        //static void DisplayWhetherEqual(Student student1, Student student2)
-        //{
-        //    if (student1 == student2)
-        //    {
-        //        Console.WriteLine(string.Format("{0,12} == {1}", student1, student2));
-        //    }
-
-        //    else
-        //    {
-        //        Console.WriteLine(string.Format("{0,12} != {1}", student1, student2));
-        //    }
-        //    Console.ReadLine();
-        //}
 
 
     }
