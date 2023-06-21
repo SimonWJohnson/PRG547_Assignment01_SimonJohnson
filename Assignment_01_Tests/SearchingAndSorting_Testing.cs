@@ -53,6 +53,7 @@ namespace Assignment_01_Tests
             studentList.Add(student10);
         }
 
+        [Test]
         public void StudentPart8LinearSearch()
         {
             StudentPart8 target = student3;
@@ -60,5 +61,19 @@ namespace Assignment_01_Tests
             Assert.AreEqual(target, result);
         }
 
+        [Test]
+        public void StudentPart8BinarySearch()
+        {
+            studentList.Sort((student1, student2) => student1.Name.CompareTo(student2.Name));
+            StudentPart8 target = student7;
+            StudentPart8 result = tools.LinearSearchArray<StudentPart8>(studentList, target);
+            Assert.AreEqual(target, result);
+        }
+
+        [Test]
+        public void StudentPart8BubbleSort()
+        {
+
+        }
     }
 }

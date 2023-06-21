@@ -72,7 +72,7 @@ namespace PRG547_Assignment01_SimonJohnson
             {
                 return 1;
             }
-            return this.GetHashCode().CompareTo(other.GetHashCode());
+            return this.Name.CompareTo(other.Name);
         }
 
     }
