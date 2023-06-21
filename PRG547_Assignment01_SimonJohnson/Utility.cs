@@ -168,7 +168,7 @@ namespace PRG547_Assignment01_SimonJohnson
             {
                 T[] array = new T[list.Count];
                 list.CopyTo(array, 0);
-
+                                
                 int left = 0;
                 int right = array.Length - 1;
 
