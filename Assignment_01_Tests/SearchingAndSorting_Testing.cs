@@ -79,7 +79,7 @@ namespace Assignment_01_Tests
         {
             studentList.Sort((student1, student2) => student1.Name.CompareTo(student2.Name));
             StudentPart8 target = student7;
-            StudentPart8 result = tools.LinearSearchArray<StudentPart8>(studentList, target);
+            StudentPart8 result = tools.BinarySearchArray<StudentPart8>(studentList, target);
             Assert.AreEqual(target, result);
         }
 
