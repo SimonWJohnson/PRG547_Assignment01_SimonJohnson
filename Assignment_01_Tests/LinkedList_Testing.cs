@@ -49,13 +49,13 @@ namespace Assignment_01_Tests
         [Test]
         public void studentIsFound()
         {
-            Assert.AreEqual(student2, tools.SingleSequentialSearch<Student>(studentList, student2));
+            studentList.AddFirst(student1);
+            Assert.AreEqual(student1, tools.SingleSequentialSearch<Student>(studentList, student1).Value);
         }
 
         [Test]
         public void removeFromHead() // Working
         {
-            studentList.AddFirst(student1);
             studentList.RemoveFirst();
             Assert.AreNotEqual(student1, studentList.Head.Value);
         }
@@ -63,7 +63,6 @@ namespace Assignment_01_Tests
         [Test]
         public void removeFromTail() // Working
         {
-            studentList.AddLast(student2);
             studentList.RemoveLast();
             Assert.AreNotEqual(student2, studentList.Tail.Value);
         }
