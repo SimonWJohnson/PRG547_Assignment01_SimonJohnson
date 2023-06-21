@@ -13,6 +13,7 @@ namespace Assignment_01_Tests
     class SearchingAndSorting_Testing
     {
         public List<StudentPart8> studentList;
+        public List<StudentPart8> studentList2;
         public Utility tools;
         public StudentPart8 student1;
         public StudentPart8 student2;
@@ -29,6 +30,7 @@ namespace Assignment_01_Tests
         public void Init()
         {
             studentList = new List<StudentPart8>();
+            studentList2 = new List<StudentPart8>();
             student1 = new StudentPart8("Simon", "simon@email.com", "08 555 6667", "100", "Currie Street", "Adelaide", "5000", "SA", "PRG547", new DateTime(2022, 05, 22), new DateTime(2022, 06, 01), "PASS", "Semester 01");
             student2 = new StudentPart8("Jesse", "jesse@email.com", "08 555 7777", "101", "Currie Street", "Adelaide", "5000", "SA", "PRG547", new DateTime(2022, 05, 22), new DateTime(2022, 06, 01), "PASS", "Semester 01");
             student3 = new StudentPart8("Andre", "Andre.email.com", "08 555 8888", "102", "Currie Street", "Adelaide", "5000", "SA", "PRG547", new DateTime(2022, 05, 22), new DateTime(2022, 06, 01), "PASS", "Semester 01");
@@ -51,6 +53,17 @@ namespace Assignment_01_Tests
             studentList.Add(student8);
             studentList.Add(student9);
             studentList.Add(student10);
+
+            studentList2.Add(student1);
+            studentList2.Add(student2);
+            studentList2.Add(student3);
+            studentList2.Add(student4);
+            studentList2.Add(student5);
+            studentList2.Add(student6);
+            studentList2.Add(student7);
+            studentList2.Add(student8);
+            studentList2.Add(student9);
+            studentList2.Add(student10);
         }
 
         [Test]
@@ -73,7 +86,9 @@ namespace Assignment_01_Tests
         [Test]
         public void StudentPart8BubbleSort()
         {
-
+            tools.ListBubbleSortAscending<StudentPart8>(studentList2);
+            Assert.AreEqual(studentList2[0], student10);
+            Assert.AreEqual(studentList2[9], student1);
         }
     }
 }

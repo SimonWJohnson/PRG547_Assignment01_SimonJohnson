@@ -336,12 +336,36 @@ namespace PRG547_Assignment01_SimonJohnson
             }
             catch(Exception ex)
             {
-                Console.WriteLine($"Error in ListBinarySearchmethod {ex}");
+                Console.WriteLine($"Error in ListBinarySearch method {ex}");
                 return default;
             }
         }
 
-
+        // List Bubble Sort Ascending
+        public void ListBubbleSortAscending<T>(List<T> list) where T : IComparable<T>
+        {
+            try
+            {
+                int count = list.Count; // Gets the number elements 
+                for (int i = 0; i < count - 1; i++) // Outer loop iterates through the list
+                {
+                    for (int j = 0; j < count - 1 - i; j++) // Inner loop iterates to one last index position
+                    {
+                        if (list[j].CompareTo(list[j + 1]) > 0)
+                        {
+                            // Swap elements
+                            T temp = list[j];
+                            list[j] = list[j + 1];
+                            list[j + 1] = temp;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error ListBubbleSortAscending method {ex}");
+            }
+        }
 
 
     }
