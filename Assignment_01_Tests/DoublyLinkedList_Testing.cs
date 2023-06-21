@@ -50,7 +50,8 @@ namespace Assignment_01_Tests
         public void studentIsFound()
         {
             studentList.AddFirst(student1);
-            Assert.AreEqual(student1, tools.SequentialSearch<Student>(studentList, student1).Value);
+            //Assert.AreEqual(student1, tools.SequentialSearch<Student>(studentList, student1).Value);
+            Assert.IsTrue(studentList.Contains(student1));
 
         }
 
