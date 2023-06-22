@@ -38,6 +38,7 @@ namespace PRG547_Assignment01_SimonJohnson
 
 
         // BubbleSort Ascending
+        //
         public void BubbleSortAsc<T>(DoublyLinkedList<T> List)
         {
             try
@@ -61,12 +62,13 @@ namespace PRG547_Assignment01_SimonJohnson
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error in BubbleSortAsc method {ex}");
+                Console.WriteLine($"Error in BubbleSortAsc method {ex}"); // If an exception occurrs, null is returned
             }
         }
 
         // Descending BubbleSort
-        // 
+        // Works almost identically to the BubbleSortAsc method, except sorts elements in descending order
+        // If an exception occurrs, null is returned
         public void BubbleSortDesc<T>(DoublyLinkedList<T> List)
         {
             try
@@ -78,7 +80,7 @@ namespace PRG547_Assignment01_SimonJohnson
                     for (int j = 0; j < count - 1; j++)
                     {
                         DoublyLinkedListNode<T> nextNode = current.Next;
-                        if (current.Value.GetHashCode() < nextNode.Value.GetHashCode())
+                        if (current.Value.GetHashCode() < nextNode.Value.GetHashCode()) // Condition to check if current node's hash code is less than the next node
                         {
                             T temp = current.Value;
                             current.Value = nextNode.Value;
@@ -95,6 +97,9 @@ namespace PRG547_Assignment01_SimonJohnson
         }
 
         // Get Middle method
+        // Instantiated for use in the DoublyLinkedList BinarySearch method below
+        // Resolved inherent indexing issue of DoublyLinkedLists
+        // If an exception occurrs, null is returned
         public DoublyLinkedListNode<T> GetMiddle<T>(DoublyLinkedListNode<T> left, DoublyLinkedListNode<T> right) // represents leftmost and rightmost nodes
         {
             try
@@ -125,7 +130,7 @@ namespace PRG547_Assignment01_SimonJohnson
         // If x matches with middle element, return the middle index
         // elseif x is greater than the mid element, search on right half
         // elseif x is smaller than middle element, search on left half
-
+        // If an exception occurrs, null is returned
         public DoublyLinkedListNode<T> BinarySearch<T>(DoublyLinkedList<T> list, T value) where T : IComparable<T>
         {
             try
@@ -161,7 +166,13 @@ namespace PRG547_Assignment01_SimonJohnson
 
         // Binary search for SingleLinkedList normal binary search
         // CopyTo Array, search through this array
-        // ERROR HERE?
+        // Sort Array[] first
+        // Compare x w/ middle element
+        // If x matches with middle element, return the middle index
+        // elseif x is greater than the mid element, search on right half
+        // elseif x is smaller than middle element, search on left half
+        // If an exception occurrs, null is returned
+        // ERROR HERE? ** RESOLVED **
         public T SingleBinarySearch<T>(LinkedList<T> list, T value) where T : IComparable<T>
         {
             try
@@ -201,6 +212,17 @@ namespace PRG547_Assignment01_SimonJohnson
 
 
         // Sequential Search - LinkedList
+        // Performs a sequential search for a specific value in a LinkedList
+        // Takes two parameters; the list to search, and the value to search for
+        // Implements the IComparable interface to use the CompareTo method
+        // Initialises the Head of the list as current (the curent node being checked during the search)
+        // Retireves the count of elements in the LinkedList
+        // Iterates through the LinkedList
+        // Compares the value of the current node to the search value
+        // If current node and the search value are equal, the current node is returned
+        // If the values are not equal, current is updated to point to the next node to continue the search
+        // If the loop completes and no match is found, null is returned
+        // If an exception occurrs, null is returned
         public LinkedListNode<T> SingleSequentialSearch<T>(LinkedList<T> list, T value) where T : IComparable<T>
         {
             try
@@ -227,6 +249,9 @@ namespace PRG547_Assignment01_SimonJohnson
         }
 
         // Sequential Search - DoublyLinkedList
+        // Performs a sequential search for a specific value in a DoublyLinkedList
+        // Works identically to the SingleSequentialSearch, except iterates through a DoublyLinkedList
+        // If an exception occurrs, null is returned
         public DoublyLinkedListNode<T> SequentialSearch<T>(DoublyLinkedList<T> list, T value) where T : IComparable<T>
         {
             try
@@ -254,6 +279,13 @@ namespace PRG547_Assignment01_SimonJohnson
         }
 
         // Part 8: Testing ** 
+        // Performs a Linear Search for a specific value in a List
+        // Takes a list to iterate through, and a value to search for
+        // Iterates over the indexes of the list
+        // Checks each element of the list, and compares the value at the current index with the search value
+        // If the values match, the matching value is returned
+        // If the value is not found, default (null) is returned
+        // If an exception occurrs, null is returned
         public T LinearSearchArray<T>(List<T> list, T value)
         {
             try
@@ -274,7 +306,14 @@ namespace PRG547_Assignment01_SimonJohnson
             }
         }
 
-        
+        //StudentPart8 Testing
+        // Sort List first
+        // Initialise left most element at 0, right element as the right most element -1
+        // Compare x w/ middle element
+        // If x matches with middle element, return the middle index
+        // elseif x is greater than the mid element, search on right half
+        // elseif x is smaller than middle element, search on left half
+        // If an exception occurrs, null is returned
         public T BinarySearchArray<T>(List<T> list, T value) where T : IComparable<T>
         {
             try
@@ -306,39 +345,6 @@ namespace PRG547_Assignment01_SimonJohnson
             catch (Exception ex)
             {
                 Console.WriteLine($"Error in BinarySearchArray method {ex}");
-                return default;
-            }
-        }
-
-        //StudentPart8 Testing
-        public T ListTestBinarySearch<T>(List<T> list, T value) where T : IComparable
-        {
-            try
-            {
-                int left = 0;
-                int right = list.Count - 1;
-
-                while (left <= right)
-                {
-                    int mid = (left + right) / 2;
-                    if (list[mid].CompareTo(value) == 0)
-                    {
-                        return list[mid];
-                    }
-                    else if (list[mid].CompareTo(value) < 0)
-                    {
-                        left = mid + 1;
-                    }
-                    else
-                    {
-                        right = mid - 1;
-                    }
-                }
-                return default;
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine($"Error in ListBinarySearch method {ex}");
                 return default;
             }
         }
